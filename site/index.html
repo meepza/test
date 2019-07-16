@@ -2,9 +2,67 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Hello Coursera Title</title>
+    <title>Coursera Title</title>
+    <style>
+		<!--
+			Selectors : element .class #id
+			Multiple Selector : separated by a comma : selector,selector
+			Selector Combinations : (selector means any of the above 3 types of selectors)
+				Element with class : element.class
+				Element with multiple classes : .class1.class2
+				Direct child : selector > selector
+				Descendent : selector selector
+				Adjacent sibling : selector + selector
+				General sibling : selector ~ selector
+			Pseudo-class selectors : selector:pseudo-class
+				Common pseudo-classes : link visited hover active nth-child(x) nth-child(odd)
+			Pseudo-class selector combinations : selector:pseudo-class1:pseudo-class2 eg li:nth-child(4):hover
+			Styles should be placed internally, or externally if applied to multiple html files, but never inline, eg style="color:blue;font-size:46px;"
+			The importance, origin, specificity and source order of all style rules are used in the cascading algorithm
+				Origin : Last declaration wins
+				Merge : If no conflicting declarations exist regarding the Origin then merge the multiple declarations
+				Inheritance : DOM tree
+				Specificity : Most specific selector combination wins : Inline > ID > Class / pseudo-class / attribute > Number of elements
+				Important : Override all cascading scores : !important
+			To apply a style rule at the highest possible DOM hierarchy, eg body, is a good way to ensure a rule is inherited throughout your webpage
+			However, some properties such as box-sizing, cannot be inherited and we have to apply it to every single element
+			This is where the * selector comes in handy
+		-->
+
+		<!--font-size: px % em vw:
+				px is absolute pixels
+				% is relative to the browser's default font size (16px)
+				em is relative to the default size of the specific font's letter m
+				vw is responsive to viewport width, so that 1vw = 1% of viewport width
+			https://www.google.com/fonts
+			The Box Model applies to all elements and CSS3 allows for box-sizing: border-box; rather than the conventional content-box
+			Margins don't define the width of the box, but only how far other elements should be pushed away from it
+			Margins : horizontally right followed by left are cumulative, however vertically bottom followed by top collapse to the maximum
+			background-image: url("relative to the css directory");
+			Properties such as background are composite properties and implies default properties for those not explicitly declared
+			Whereas specific properies such as background-color are subject to the inheritance and specificity rules of CSS-->
+		body {
+			/*font-family:Tahoma, Geneva, sans-serif;*/
+			font-family:Verdana, Geneva, sans-serif
+		}
+    </style>
   </head>
   <body>
-    <h1>Hello Coursera Body</h1>
+    <!--The body element is also know as the viewport
+      The content model defines which elements are allowed to be nested within a parent element
+      HTML <= 4 had only 2 content models : Block-level and Inline
+        Block-level content models are always started on a new line, unless explicit CSS overrides that behaviour, and may contain either another Block-level or Inline element, eg div
+          However, avoid the generic div if a specific block-level semantic element is available eg header, nav, section, article, aside, footer
+        Inline content models render on the same line, unless explicit CSS overrides that behaviour, and may only contain other Inline elements, eg span
+      HTML 5 changed that to 7 different content models : https://www.w3.org/TR/html5/dom.html#kinds-of-content
+        Block-level content models roughly corresponds to Flow and Inline to Phrasing content models
+        Some elements can be members of multiple content models, eg a can be Flow and Phrasing, and hence <a><div></div></a> is possible to allow for the clickable region to expand beyond just the text content of a
+      -->
+    <!--Image elements should always have a height an width attribute since that facilitates reserving space for the image if the rendering is particulary slow
+		Also, if the URL is broken then the visual representation of the page as a whole is not affect
+		Simulate a slow internet connection with DevTools > Network > Throtteling-->
+    <img>
+    <!--Headings should only be used for structure and not styling, especially h1 should use terms to target SEO algorithms-->
+    <h1>Coursera Body</h1>
   </body>
 </html>
